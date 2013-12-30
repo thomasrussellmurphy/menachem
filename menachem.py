@@ -4,9 +4,9 @@
 import sys
 
 # Loop for our interface
-def inteface_loop():
+def interface_loop():
     print 'Testing Echo'
-    while true:
+    while True:
         input = raw_input('> ')
         print input
 
@@ -18,5 +18,4 @@ def main():
         print 'Hello World'
 
 # Call the main() function to begin the program.
-if __name__ == '__main__':
-    main()
+main()
