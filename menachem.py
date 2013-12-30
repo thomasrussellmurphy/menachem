@@ -8,8 +8,6 @@ from classes.state import State
 def interface_loop():
     state = State()
     while True:
-        # Get the next state, also sets intital state
-        state.next_state()
         # Notify user of current state
         state.print_state()
         
@@ -49,6 +47,9 @@ def interface_loop():
                     break
             else:
                 print 'Invalid input.'
+                
+        # Get the next state, also sets intital state
+        state.next_state()
 
 def main():
     if len(sys.argv) > 1:
