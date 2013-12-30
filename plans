@@ -1,0 +1,4 @@
+Parts:
+Colour namer
+Room generator (number of doors, colour, features)
+Input parser (Determine which door, save, and load. [Possibly allow closer examination of features?])
