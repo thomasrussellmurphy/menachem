@@ -5,10 +5,13 @@ MIN_DOORS = 2
 MAX_DOORS = 10
 
 class State:
-    name = 'player'
-    depth = -1 # Need to call next_state once
-    doors = -1 # Same
-    color = None # Will be implemented later
+
+    # Initializes the starting values.
+    def __init__(self):
+        self.name = 'player'
+        self.depth = 0
+        self.doors = random.randint(MIN_DOORS, MAX_DOORS)
+        self.color = None # TODO: implement color. Also, possibly spell it right.
     
     def print_depth(self):
         if self.depth == 1:
