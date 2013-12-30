@@ -2,25 +2,25 @@
 
 # Modules
 import sys
-import random
-
-# Constants
-MIN_DOORS = 2
-MAX_DOORS = 10
+from classes.state import State
 
 # Loop for our interface
 def interface_loop():
-    depth = 0
+    state = State()
     while True:
-        n = random.randint(MIN_DOORS, MAX_DOORS)
-        print 'You are ' + str(depth) + ' rooms into the maze.'
-        print 'You are in a room. There are ' + str(n) + ' doors, zero-indexed.'
+        # Get the next state, also sets intital state
+        state.next_state()
+        # Notify user of current state
+        state.print_state()
+        
+        # Input parsing block
         while True:
             instr = raw_input('> ')
             
             if instr == '':
                 continue
-
+            
+            # Exit parsing
             elif instr == 'exit' or instr == 'quit':
                 print 'Are you sure?'
                 noinput = True
@@ -31,22 +31,31 @@ def interface_loop():
                     elif response == 'n':
                         noinput = False
             
+            elif instr == 'h' or instr == 'help':
+                print 'This can be helpful.'
+                print 'help, #, exit, quit, location?'
+                continue
+            
+            elif instr == 'location?':
+                state.print_desc()
+            
+            # Choosing a door
             elif all([True if i in '1234567890' else False for i in instr]):
                 i = int(instr)
-                if 0 > i or n <= i:
+                if 0 > i or state.doors <= i:
                     print 'Invalid input. Please enter a valid door number.'
                 else:
                     print 'You go through door number ' + instr + '.'
-                    depth += 1
                     break
             else:
                 print 'Invalid input.'
 
 def main():
     if len(sys.argv) > 1:
-        interface_loop()
+        interface_loop() # Start loop until exit `return`
+        print 'Exiting, game not saved.'
     else:
-        print 'Hello World'
+        print 'Run with any arguments to start.'
 
 # Call the main() function to begin the program.
 main()
