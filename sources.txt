@@ -1,0 +1,1 @@
+html_16_colors.csv Hand adapted from https://en.wikipedia.org/wiki/Web_colors#HTML_color_names
