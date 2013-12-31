@@ -13,7 +13,10 @@ def interface_loop():
         
         # Input parsing block
         while True:
-            instr = raw_input('> ')
+            data = raw_input('> ').lower()
+            split = data.partition(' ')
+            instr = split[0]
+            args = split[2]
             
             if instr == '':
                 continue
@@ -31,20 +34,22 @@ def interface_loop():
             
             elif instr == 'h' or instr == 'help':
                 print 'This can be helpful.'
-                print 'help, #, exit, quit, location?'
+                print 'help, exit, quit, location?'
+                print 'enter N # where N is the desired number of the door to enter.'
                 continue
             
             elif instr == 'location?':
                 state.print_desc()
             
             # Choosing a door
-            elif all([True if i in '1234567890' else False for i in instr]):
-                i = int(instr)
-                if 0 > i or state.doors <= i:
-                    print 'Invalid input. Please enter a valid door number.'
-                else:
-                    print 'You go through door number ' + instr + '.'
-                    break
+            elif instr == 'enter':
+                if all([True if i in '1234567890' else False for i in args]):
+                    i = int(args)
+                    if 0 > i or state.doors <= i:
+                        print 'Invalid input. Please enter a valid door number.'
+                    else:
+                        print 'You go through door number ' + str(i) + '.'
+                        break
             else:
                 print 'Invalid input.'
                 
