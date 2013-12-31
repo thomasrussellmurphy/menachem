@@ -34,12 +34,16 @@ def interface_loop():
             
             elif instr == 'h' or instr == 'help':
                 print 'This can be helpful.'
-                print 'help, exit, quit, location?'
-                print 'enter N # where N is the desired number of the door to enter.'
+                print 'General commands: help, exit, quit'
+                print 'Status commands: location?'
+                print 'Movement commands: enter N, back'
                 continue
             
             elif instr == 'location?':
                 state.print_desc()
+            
+            elif instr == 'back':
+                print 'There is no door actually behind you. Look forward. It will be better that way.'
             
             # Choosing a door
             elif instr == 'enter':
