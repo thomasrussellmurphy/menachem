@@ -43,7 +43,7 @@ def interface_loop():
             
             # Choosing a door
             elif instr == 'enter':
-                if all([True if i in '1234567890' else False for i in args]):
+                if all([i in '1234567890' for i in args]):
                     i = int(args)
                     if 0 > i or state.doors <= i:
                         print 'Invalid input. Please enter a valid door number.'
