@@ -34,8 +34,8 @@ def interface_loop():
             
             elif instr == 'h' or instr == 'help':
                 print 'This can be helpful.'
-                print 'help, exit, quit, location?'
-                print 'enter N # where N is the desired number of the door to enter.'
+                print 'help, exit, quit, location?,'
+                print 'enter N where N is the desired number of the door to enter.'
                 continue
             
             elif instr == 'location?':
