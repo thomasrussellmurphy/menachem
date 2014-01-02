@@ -36,29 +36,38 @@ def interface_loop():
                 print 'This can be helpful.'
                 print 'General commands: help, exit, quit'
                 print 'Status commands: look'
-                print 'Movement commands: enter N, back'
+                print 'Movement commands: enter N, back, sit, stand'
                 continue
             
             elif instr == 'look':
                 print 'You look around the room.'
                 state.print_desc()
+                
+            elif instr == 'sit':
+                state.sit()
+                print 'You sit down in the room. Not much seems to happen.'
+            
+            elif instr == 'stand':
+                state.stand()
+                print 'You stand back up. There is forward to consider.'
             
             elif instr == 'back':
-                print 'There is actually no door behind you. Look forward. It will be better that way.'
+                print 'There is no door behind you. Look forward. It will be better that way.'
             
             # Choosing a door
             elif instr == 'enter':
-                if all([i in '1234567890' for i in args]):
-                    i = int(args)
-                    if 0 > i or state.doors <= i:
-                        print 'Invalid input. Please enter a valid door number.'
-                    else:
-                        print 'You go through door number ' + str(i) + '.'
-                        break
+                if state.sitting:
+                    print 'Stand up if you actually want to get to a door.'
+                elif state.check_valid_door(args):
+                    print 'You go through door number ' + args + '.'
+                    break # to get to next state
+                else:
+                    print 'Invalid input. Please enter a valid door number'
+            
             else:
                 print 'Invalid input.'
                 
-        # Get the next state, also sets intital state
+        # Transition to the next state.
         state.next_state()
 
 def main():
