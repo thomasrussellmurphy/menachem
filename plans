@@ -1,4 +1,4 @@
 Parts:
-Colour namer
-Room generator (number of doors, colour, features)
-Input parser (Determine which door, save, and load. [Possibly allow closer examination of features?])
+Color namer (A whole project on its own? Take color coordinates and generate name based on position in color space)
+Room generator (number of doors, color, features, appropriate "shaping" of random selection of characteristics)
+Input parser (Determine which door, other actions [look, examine, sit, stand], save, and load)
