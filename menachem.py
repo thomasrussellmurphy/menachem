@@ -35,11 +35,12 @@ def interface_loop():
             elif instr == 'h' or instr == 'help':
                 print 'This can be helpful.'
                 print 'General commands: help, exit, quit'
-                print 'Status commands: location?'
+                print 'Status commands: look'
                 print 'Movement commands: enter N, back'
                 continue
             
-            elif instr == 'location?':
+            elif instr == 'look':
+                print 'You look around the room.'
                 state.print_desc()
             
             elif instr == 'back':
