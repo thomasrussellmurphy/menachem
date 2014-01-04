@@ -3,3 +3,4 @@ https://en.wikipedia.org/wiki/HSL_and_HSV
 https://en.wikipedia.org/wiki/Web_colors
 http://docs.python.org/2/library/colorsys.html
 http://www.poynton.com/ColorFAQ.html
+http://docs.python.org/2/library/pickle.html
