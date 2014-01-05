@@ -2,11 +2,7 @@
 "exit-question": ["Are you sure? This will not save automatically."],
 "exit-prompt": ["[y/n]"],
 "exit-responses": ["y","n"],
-"help": ["This can be helpful.
-General commands: help, exit, quit
-Status commands: look
-Movement commands: enter N, back, sit, stand
-Localization commands: set-locale, check-locale, available-locales"],
+"help": ["This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, available-locales"],
 "look": ["You look around the room."],
 "sit": ["You sit down in the room. Not much seems to happen"],
 "stand": ["You stand back up. There is forward to consider."],
