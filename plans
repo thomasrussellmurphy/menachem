@@ -2,4 +2,4 @@ Parts:
 Color namer (A whole project on its own? Take color coordinates and generate name based on position in color space)
 Room generator (number of doors, color, features, appropriate "shaping" of random selection of characteristics)
 Input parser (Determine which door, other actions [look, examine, sit, stand], save, and load)
-Localization capacity (Load arrays of response strings, assign unique IDs to each response string, concatenation of response strings with state data)
+Localization capacity (Load dictionary of ID and string-array pairs that identify each of the appropriate response patterns, concatenation of response strings with state data)

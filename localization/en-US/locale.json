@@ -1,0 +1,19 @@
+{
+"exit-question": ["Are you sure? This will not save automatically."],
+"exit-prompt": ["[y/n]"],
+"exit-responses": ["y","n"],
+"help": ["(4 lines)"],
+"look": ["You look around the room."],
+"sit": ["You sit down in the room. Not much seems to happen"],
+"stand": ["You stand back up. There is forward to consider."],
+"back": ["There is no door behind you. Look forward. It will be better that way."],
+"enter-sitting": ["Stand up if you actually want to get to a door."],
+"enter-valid": ["You go through door number ", "."],
+"enter-invalid": ["Invalid input. Please enter a valid door number."],
+"invalid-input": ["Invalid input."],
+
+"depth-one": ["You are 1 room into the maze."],
+"depth-general": ["You are ", " rooms into the maze."],
+"desc-sitting": ["You are sitting in the room. Stand up and take a look around."],
+"desc-room": ["You are in a room. There are ", " doors, zero-indexed."]
+}
