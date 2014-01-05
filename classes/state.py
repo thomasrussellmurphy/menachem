@@ -1,4 +1,5 @@
 import random
+from classes.localization import Localization
 
 # Constants
 MIN_DOORS = 2
@@ -13,6 +14,7 @@ class State:
         self.doors = random.randint(MIN_DOORS, MAX_DOORS)
         self.color = None # TODO: implement color.
         self.sitting = False
+        self.localization = Localization() # TODO: implement loading localization
     
     def print_depth(self):
         if self.depth == 1:
