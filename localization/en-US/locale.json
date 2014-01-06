@@ -13,6 +13,9 @@
     "enter-sitting": [
       "Stand up if you actually want to get to a door."
     ], 
+    "exit-no-save": [
+      "The game was not saved."
+    ],
     "desc-room": [
       "You are in a room. There are ", 
       " doors, zero-indexed."
@@ -27,7 +30,7 @@
       "Invalid input. Please enter a valid door number."
     ], 
     "exit-prompt": [
-      "[y/n]"
+      "[y/n] "
     ], 
     "stand": [
       "You stand back up. There is forward to consider."
@@ -50,7 +53,7 @@
       " rooms into the maze."
     ], 
     "help": [
-      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, available-locales"
+      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales"
     ]
   }
 ]

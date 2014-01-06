@@ -17,51 +17,53 @@ def process_input(state, data):
         print 'Are you sure?'
         noinput = True
         while noinput:
-            response = raw_input('[y/n] ')
-            if response == 'y':
+            response = raw_input(state.locale.get_string('exit-prompt',[]))
+            if response == state.locale.get_phrases('exit-responses')[0]:
+                print state.locale.get_string('exit-no-save', [])
                 exit() # End of program
-            elif response == 'n':
+            elif response == state.locale.get_phrases('exit-responses')[1]:
                 noinput = False # Continue execution
                     
     elif instr == 'h' or instr == 'help':
-        print 'This can be helpful.'
-        print 'General commands: help, exit, quit'
-        print 'Status commands: look'
-        print 'Movement commands: enter N, back, sit, stand'
-        return
+        print state.locale.get_string('help',[])
                 
     elif instr == 'look':
-        print 'You look around the room.'
+        print state.locale.get_string('look',[])
         state.print_desc()
-        return
                 
     elif instr == 'sit':
         state.sit()
-        print 'You sit down in the room. Not much seems to happen.'
-        return
+        print state.locale.get_string('sit',[])
                 
     elif instr == 'stand':
         state.stand()
-        print 'You stand back up. There is forward to consider.'
-        return
+        print state.locale.get_string('stand', [])
                 
     elif instr == 'back':
-        print 'There is no door behind you. Look forward. It will be better that way.'
-        return
+        print state.locale.get_string('back', [])
     
     elif instr == 'enter':
         if state.sitting:
-            print 'Stand up if you actually want to get to a door.'
+            print state.locale.get_string('enter-sitting', [])
         elif state.check_valid_door(args):
-            print 'You go through door number ' + args + '.'
+            print state.locale.get_string('enter-valid', [args])
             state.next_state() # to get to next state
             state.print_state()
         else:
-            print 'Invalid input. Please enter a valid door number'
+            print state.locale.get_string('enter-invalid', [])
             state.print_desc()
-        return
+    
+    elif instr == 'set-locale':
+        state.locale.set_locale(args)
+        
+    elif instr == 'check-locale':
+        print state.locale.get_locale()
+        
+    elif instr == 'list-locales':
+        print state.locale.get_localizations()
+        
     else:
-        print 'Invalid input.'
+        print state.locale.get_string('invalid-input', [])
     return
 
 # Loop for our interface
@@ -77,7 +79,6 @@ def interface_loop():
 def main():
     if len(sys.argv) > 1:
         interface_loop() # Start loop until exit `return`
-        print 'Exiting, game not saved.'
     else:
         print 'Run with any arguments to start.'
 
