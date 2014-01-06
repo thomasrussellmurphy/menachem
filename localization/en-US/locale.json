@@ -1,8 +1,50 @@
 [
   {
+    "back": [
+      "There is no door behind you. Look forward. It will be better that way."
+    ], 
+    "depth-general": [
+      "You are ", 
+      " rooms into the maze."
+    ], 
+    "depth-one": [
+      "You are 1 room into the maze."
+    ], 
+    "desc-room": [
+      "You are in a room. There are ", 
+      " doors, zero-indexed."
+    ], 
+    "desc-sitting": [
+      "You are sitting in the room. Stand up and take a look around."
+    ], 
+    "enter-invalid": [
+      "Invalid input. Please enter a valid door number."
+    ], 
+    "enter-sitting": [
+      "Stand up if you actually want to get to a door."
+    ], 
     "enter-valid": [
       "You go through door number ", 
       "."
+    ], 
+    "exit-no-save": [
+      "The game was not saved."
+    ], 
+    "exit-prompt": [
+      "[y/n] "
+    ], 
+    "exit-question": [
+      "Are you sure? This will not save automatically."
+    ], 
+    "exit-responses": [
+      "y", 
+      "n"
+    ], 
+    "help": [
+      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales"
+    ], 
+    "invalid-input": [
+      "Invalid input."
     ], 
     "look": [
       "You look around the room."
@@ -10,50 +52,8 @@
     "sit": [
       "You sit down in the room. Not much seems to happen"
     ], 
-    "enter-sitting": [
-      "Stand up if you actually want to get to a door."
-    ], 
-    "exit-no-save": [
-      "The game was not saved."
-    ],
-    "desc-room": [
-      "You are in a room. There are ", 
-      " doors, zero-indexed."
-    ], 
-    "back": [
-      "There is no door behind you. Look forward. It will be better that way."
-    ], 
-    "depth-one": [
-      "You are 1 room into the maze."
-    ], 
-    "enter-invalid": [
-      "Invalid input. Please enter a valid door number."
-    ], 
-    "exit-prompt": [
-      "[y/n] "
-    ], 
     "stand": [
       "You stand back up. There is forward to consider."
-    ], 
-    "desc-sitting": [
-      "You are sitting in the room. Stand up and take a look around."
-    ], 
-    "exit-responses": [
-      "y", 
-      "n"
-    ], 
-    "invalid-input": [
-      "Invalid input."
-    ], 
-    "exit-question": [
-      "Are you sure? This will not save automatically."
-    ], 
-    "depth-general": [
-      "You are ", 
-      " rooms into the maze."
-    ], 
-    "help": [
-      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales"
     ]
   }
 ]
