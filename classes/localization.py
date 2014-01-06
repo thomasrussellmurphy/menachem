@@ -11,7 +11,6 @@ class Localization:
         self.set_locale(self.locale_default)
 
     def set_locale(self, locale_name):
-        # will need exception handling with these...
         try:
             file = io.open('localization/' + locale_name + '/locale.json', 'r')
         except (IOError) as err:
@@ -48,3 +47,9 @@ class Localization:
             output += str(components[i])
 
         return output
+    
+    def get_locale(self):
+        return 'Locale: ' + self.locale_name
+
+    def get_localizations(self):
+        return 'en-US' # need to scan filesystem for localization/*/locale.json files
