@@ -14,7 +14,7 @@ def process_input(state, data):
         return
     
     elif instr == 'exit' or instr == 'quit':
-        print 'Are you sure?'
+        print state.locale.get_string('exit-confirm',[])
         noinput = True
         while noinput:
             response = raw_input(state.locale.get_string('exit-prompt',[]))
@@ -61,7 +61,22 @@ def process_input(state, data):
         
     elif instr == 'list-locales':
         print state.locale.get_localizations()
-        
+    
+    elif instr == 'save':
+        response = raw_input(state.locale.get_string('save-prompt',[]))
+        print state.create_save(response)
+
+    elif instr == 'load':
+        response = raw_input(state.locale.get_string('load-prompt',[]))
+        print state.load_save(response)
+    
+    elif instr == 'list-saves':
+        print state.locale.get_string('load-list-saves',[state.get_available_saves()])
+    
+    elif instr == 'remove-save':
+        response = raw_input(state.locale.get_string('remove-prompt',[]))
+        print state.remove_save(response)
+    
     else:
         print state.locale.get_string('invalid-input', [])
     return

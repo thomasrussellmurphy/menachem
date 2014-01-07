@@ -50,3 +50,15 @@ class State:
                 return True
         else:
             return False
+
+    def create_save(self, save_name):
+        return 'Save failed.'
+
+    def load_save(self, save_name):
+        return 'Load failed.'
+
+    def get_available_saves(self):
+        return ''
+
+    def remove_save(self, save_name):
+        return 'Did not remove save.'

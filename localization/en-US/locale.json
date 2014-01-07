@@ -27,6 +27,9 @@
       "You go through door number ", 
       "."
     ], 
+    "exit-confirm": [
+    "Are you sure?"
+    ], 
     "exit-no-save": [
       "The game was not saved."
     ], 
@@ -41,13 +44,26 @@
       "n"
     ], 
     "help": [
-      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales \nMeta: save, load, list-saves"
+      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales \nMeta: save, load, list-saves, remove-save"
     ], 
     "invalid-input": [
       "Invalid input."
     ], 
+    "load-failure": [
+      "Load failed."
+    ], 
+    "load-list-saves": [
+      "List of available saves: \n",
+      "\nEnd of list."
+    ], 
+    "load-prompt": [
+      "Enter load name: "
+    ], 
     "look": [
       "You look around the room."
+    ], 
+    "save-prompt": [
+      "Enter save name (will overwrite): "
     ], 
     "sit": [
       "You sit down in the room. Not much seems to happen"
