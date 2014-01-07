@@ -41,7 +41,7 @@
       "n"
     ], 
     "help": [
-      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales"
+      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales \nMeta: save, load, list-saves"
     ], 
     "invalid-input": [
       "Invalid input."
