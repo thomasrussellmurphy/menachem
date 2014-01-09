@@ -1,6 +1,7 @@
 import random
 from classes.localization import Localization
 import glob
+import io
 
 # Constants
 MIN_DOORS = 2
@@ -53,10 +54,16 @@ class State:
             return False
 
     def create_save(self, save_name):
-        return 'Save failed.'
+        # Remove leading '.' and whitespace in any number
+        save_name = save_name.lstrip().lstrip('.')
+        if not save_name.endswith('.json'):
+            save_name += '.json'
+        save_file = io.open('saves/' + save_name, 'w')
+        
+        return self.locale.get_string('save-failure',[])
 
     def load_save(self, save_name):
-        return 'Load failed.'
+        return self.locale.get_string('load-failure',[])
 
     def get_available_saves(self):
         output = ''
@@ -67,4 +74,4 @@ class State:
         return output[:-1]
 
     def remove_save(self, save_name):
-        return 'Did not remove save.'
+        return self.locale.get_string('remove-save-failure',[save_name])

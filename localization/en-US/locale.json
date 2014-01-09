@@ -59,8 +59,25 @@
     "load-prompt": [
       "Enter load name: "
     ], 
+    "locale-set-failure": [
+      "Failed to load locale: ",
+      "."
+    ], 
+    "locale-set-success": [
+      "Successfully loaded locale: ",
+      "."
+    ], 
     "look": [
       "You look around the room."
+    ], 
+    "remove-prompt": [
+      "Enter save name to delete: "
+    ], 
+    "remove-save-failure": [
+      "Did not remove remove save: "
+    ], 
+    "save-failure": [
+      "Save failed."
     ], 
     "save-prompt": [
       "Enter save name (will overwrite): "

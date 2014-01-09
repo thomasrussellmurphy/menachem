@@ -15,13 +15,11 @@ class Localization:
         try:
             file = io.open('localization/' + locale_name + '/locale.json', 'r')
         except (IOError) as err:
-            print 'ERROR: ' + str(err)
             return False
             
         try:
             self.locale_dict = json.load(file)[0] # extract dict
         except (ValueError) as err:
-            print 'ERROR: ' + str(err)
             return False
         
         self.locale_name = locale_name

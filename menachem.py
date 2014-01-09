@@ -54,7 +54,10 @@ def process_input(state, data):
             state.print_desc()
     
     elif instr == 'set-locale':
-        state.locale.set_locale(args)
+        if state.locale.set_locale(args):
+            print state.locale.get_string('locale-set-success',[args])
+        else:
+            print state.locale.get_string('locale-set-failure',[args])
         
     elif instr == 'check-locale':
         print state.locale.get_locale()
@@ -95,7 +98,7 @@ def main():
     if len(sys.argv) > 1:
         interface_loop() # Start loop until exit `return`
     else:
-        print 'Run with any arguments to start.'
+        print 'Run with any arguments to start.' # not localized
 
 # Call the main() function to begin the program.
 main()
