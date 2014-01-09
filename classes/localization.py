@@ -1,5 +1,6 @@
 import json # Needed to parse saved localization file
 import io
+import glob
 
 # TODO: Complete implementation and integrate into the State
 class Localization:
@@ -52,4 +53,9 @@ class Localization:
         return 'Locale: ' + self.locale_name
 
     def get_localizations(self):
-        return 'en-US' # need to scan filesystem for localization/*/locale.json files
+        output = ''
+        valid_paths = glob.iglob('localization/*/locale.json')
+        for path in valid_paths:
+            split = path.partition('/')[2].partition('/') # pull out the * term
+            output += split[0] + '\n'
+        return output[:-1] # remove the last newline
