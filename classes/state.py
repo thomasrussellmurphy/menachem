@@ -1,5 +1,6 @@
 import random
 from classes.localization import Localization
+import glob
 
 # Constants
 MIN_DOORS = 2
@@ -58,7 +59,12 @@ class State:
         return 'Load failed.'
 
     def get_available_saves(self):
-        return ''
+        output = ''
+        valid_paths = glob.iglob('saves/*.json')
+        for path in valid_paths:
+            split = path.partition('/')
+            output += split[2] + '\n'
+        return output[:-1]
 
     def remove_save(self, save_name):
         return 'Did not remove save.'
