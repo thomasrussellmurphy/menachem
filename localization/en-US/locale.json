@@ -76,6 +76,9 @@
     "remove-save-failure": [
       "Did not remove remove save: "
     ], 
+    "remove-save-success": [
+      "Removed save: "
+    ], 
     "save-failure": [
       "Save failed."
     ], 

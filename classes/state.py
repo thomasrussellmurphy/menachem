@@ -2,6 +2,7 @@ import random
 from classes.localization import Localization
 import glob
 import io
+import os
 
 # Constants
 MIN_DOORS = 2
@@ -74,4 +75,11 @@ class State:
         return output[:-1]
 
     def remove_save(self, save_name):
-        return self.locale.get_string('remove-save-failure',[save_name])
+        # Remove leading '.' and whitespace for some safety of other files
+        save_name = save_name.lstrip().lstrip('.')
+        save_path = 'saves/' + save_name
+        if os.path.isfile(save_path) and save_name.endswith('.json'):
+            os.remove(save_path)
+            return self.locale.get_string('remove-save-success',[save_name])
+        else:
+            return self.locale.get_string('remove-save-failure',[save_name])
