@@ -43,10 +43,16 @@ def process_input(state, data):
         print state.locale.get_string('back', [])
     
     elif instr == 'enter':
+        desired_door = ''
         if state.sitting:
             print state.locale.get_string('enter-sitting', [])
-        elif state.check_valid_door(args):
-            print state.locale.get_string('enter-valid', [args])
+        elif args == '':
+            desired_door = raw_input(state.locale.get_string('enter-prompt',[]))
+        else:
+            desired_door = args
+
+        if state.check_valid_door(desired_door):
+            print state.locale.get_string('enter-valid', [desired_door])
             state.next_state() # to get to next state
             state.print_state()
         else:
@@ -54,10 +60,17 @@ def process_input(state, data):
             state.print_desc()
     
     elif instr == 'set-locale':
-        if state.locale.set_locale(args):
-            print state.locale.get_string('locale-set-success',[args])
+        desired_locale = ''
+        if args == '':
+            desired_locale = raw_input(state.locale.get_string('locale-prompt',[]))
         else:
-            print state.locale.get_string('locale-set-failure',[args])
+            desired_locale = args
+        
+        if state.locale.set_locale(desired_locale):
+            print state.locale.get_string('locale-set-success',[desired_locale])
+        else:
+            print state.locale.get_string('locale-set-failure',[desired_locale])
+            
         
     elif instr == 'check-locale':
         print state.locale.get_locale()
@@ -66,19 +79,28 @@ def process_input(state, data):
         print state.locale.get_localizations()
     
     elif instr == 'save':
-        response = raw_input(state.locale.get_string('save-prompt',[]))
-        print state.create_save(response)
+        if args == '':
+            response = raw_input(state.locale.get_string('save-prompt',[]))
+            print state.create_save(response)
+        else:
+            print state.create_save(args)
 
     elif instr == 'load':
-        response = raw_input(state.locale.get_string('load-prompt',[]))
-        print state.load_save(response)
+        if args == '':
+            response = raw_input(state.locale.get_string('load-prompt',[]))
+            print state.load_save(response)
+        else:
+            print state.load_save(args)
     
     elif instr == 'list-saves':
         print state.locale.get_string('load-list-saves',[state.get_available_saves()])
     
     elif instr == 'remove-save':
-        response = raw_input(state.locale.get_string('remove-prompt',[]))
-        print state.remove_save(response)
+        if args == '':
+            response = raw_input(state.locale.get_string('remove-prompt',[]))
+            print state.remove_save(response)
+        else:
+            print state.remove_save(args)
     
     else:
         print state.locale.get_string('invalid-input', [])

@@ -20,6 +20,9 @@
     "enter-invalid": [
       "Invalid input. Please enter a valid door number."
     ], 
+    "enter-prompt": [
+      "Enter desired door number: "
+    ], 
     "enter-sitting": [
       "Stand up if you actually want to get to a door."
     ], 
@@ -44,7 +47,7 @@
       "n"
     ], 
     "help": [
-      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter N, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales \nMeta: save, load, list-saves, remove-save"
+      "This can be helpful. \nGeneral commands: help, exit, quit \nStatus commands: look \nMovement commands: enter, back, sit, stand \nLocalization commands: set-locale, check-locale, list-locales \nMeta: save, load, list-saves, remove-save"
     ], 
     "invalid-input": [
       "Invalid input."
@@ -64,6 +67,9 @@
     ], 
     "load-success": [
       "Successfully loaded save: "
+    ], 
+    "locale-prompt": [
+      "Enter locale name: "
     ], 
     "locale-set-failure": [
       "Failed to load locale: ",
