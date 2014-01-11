@@ -18,19 +18,19 @@ class State:
         self.doors = random.randint(MIN_DOORS, MAX_DOORS)
         self.color = None # TODO: implement color.
         self.sitting = False
-        self.locale = Localization() # TODO: implement loading localization
+        self.locale = Localization()
     
     def print_depth(self):
         if self.depth == 1:
-            print 'You are 1 room into the maze.'
+            print self.locale.get_string('depth-one',[])
         else:
-            print  'You are ' + str(self.depth) + ' rooms into the maze.'
+            print self.locale.get_string('depth-general',[self.depth])
         
     def print_desc(self):
         if self.sitting:
-            print 'You are sitting in the room. Stand up and take a look around.'
+            print self.locale.get_string('desc-sitting',[])
         else:
-            print 'You are in a room. There are ' + str(self.doors) + ' doors, zero-indexed.'
+            print self.locale.get_string('desc-room',[self.doors])
     
     def print_state(self):
         self.print_depth()
@@ -75,10 +75,31 @@ class State:
         if  os.path.isfile('saves/' + save_name):
             save_file = io.open('saves/' + save_name, 'r')
             save_dict = json.load(save_file)
-            return 'loaded to memory, state not changed'
-
+            
+            name = depth = doors = color = sitting = locale_name = None
+            
+            try:
+                name = save_dict['name']
+                depth = save_dict['depth']
+                doors = save_dict['doors']
+                color = save_dict['color']
+                sitting = save_dict['sitting']
+                locale_name = save_dict['locale-name']
+                
+            except (KeyError):
+                return self.locale.get_string('load-bad-save',[save_name])
+            
+            self.name = name
+            self.depth = depth
+            self.doors = doors
+            self.color = color
+            self.sitting = sitting
+            self.locale.set_locale(locale_name)
+            
+            return self.locale.get_string('load-success',[save_name])
+            
         else:
-            return self.locale.get_string('load-failure',[])
+            return self.locale.get_string('load-failure',[save_name])
 
     def get_available_saves(self):
         output = ''

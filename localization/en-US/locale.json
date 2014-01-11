@@ -49,8 +49,11 @@
     "invalid-input": [
       "Invalid input."
     ], 
+    "load-bad-save": [
+      "Save file incomplete or corrupt. Please delete this save."
+    ], 
     "load-failure": [
-      "Loading save failed."
+      "Failed to load save: "
     ], 
     "load-list-saves": [
       "List of available saves: \n",
@@ -92,7 +95,7 @@
       "Successfully saved to file: "
     ], 
     "sit": [
-      "You sit down in the room. Not much seems to happen"
+      "You sit down in the room. Not much seems to happen."
     ], 
     "stand": [
       "You stand back up. There is forward to consider."
