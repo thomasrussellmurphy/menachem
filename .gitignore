@@ -51,3 +51,6 @@ docs/_build/
 
 # Emacs swap files
 *.py~
+
+# Game save files
+saves/*.json
