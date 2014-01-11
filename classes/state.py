@@ -3,6 +3,7 @@ from classes.localization import Localization
 import glob
 import io
 import os
+import json
 
 # Constants
 MIN_DOORS = 2
@@ -59,12 +60,25 @@ class State:
         save_name = save_name.lstrip().lstrip('.')
         if not save_name.endswith('.json'):
             save_name += '.json'
-        save_file = io.open('saves/' + save_name, 'w')
+        save_file = io.open('saves/' + save_name, 'wb')
         
-        return self.locale.get_string('save-failure',[])
+        save_dict = {'name': self.name, 'depth': self.depth, 'doors': self.doors, 'color': self.color, 'sitting': self.sitting, 'locale-name': self.locale.locale_name}
+        try:
+            json.dump(save_dict, save_file, separators=(',',':'))
+            save_file.close()
+        except (IOError) as err:
+            return self.locale.get_string('save-failure',[save_name])
+        return self.locale.get_string('save-success',[save_name])
 
     def load_save(self, save_name):
-        return self.locale.get_string('load-failure',[])
+        save_name =  save_name.lstrip().lstrip('.')
+        if  os.path.isfile('saves/' + save_name):
+            save_file = io.open('saves/' + save_name, 'r')
+            save_dict = json.load(save_file)
+            return 'loaded to memory, state not changed'
+
+        else:
+            return self.locale.get_string('load-failure',[])
 
     def get_available_saves(self):
         output = ''

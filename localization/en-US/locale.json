@@ -28,10 +28,10 @@
       "."
     ], 
     "exit-confirm": [
-    "Are you sure?"
+    "Are you sure? The game will not automatically save."
     ], 
     "exit-no-save": [
-      "The game was not saved."
+      "The game was not saved. Your progress was saved if you saved it yourself."
     ], 
     "exit-prompt": [
       "[y/n] "
@@ -50,7 +50,7 @@
       "Invalid input."
     ], 
     "load-failure": [
-      "Load failed."
+      "Loading save failed."
     ], 
     "load-list-saves": [
       "List of available saves: \n",
@@ -58,6 +58,9 @@
     ], 
     "load-prompt": [
       "Enter load name: "
+    ], 
+    "load-success": [
+      "Successfully loaded save: "
     ], 
     "locale-set-failure": [
       "Failed to load locale: ",
@@ -80,10 +83,13 @@
       "Removed save: "
     ], 
     "save-failure": [
-      "Save failed."
+      "Saving game failed."
     ], 
     "save-prompt": [
       "Enter save name (will overwrite): "
+    ], 
+    "save-success": [
+      "Successfully saved to file: "
     ], 
     "sit": [
       "You sit down in the room. Not much seems to happen"
