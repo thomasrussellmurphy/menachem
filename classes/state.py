@@ -1,5 +1,6 @@
 import random
 from classes.localization import Localization
+from classes.color import Color
 import glob
 import io
 import os
@@ -16,7 +17,7 @@ class State:
         self.name = 'player'
         self.depth = 0
         self.doors = random.randint(MIN_DOORS, MAX_DOORS)
-        self.color = None # TODO: implement color.
+        self.color = Color().become_random_color()
         self.sitting = False
         self.locale = Localization()
     
@@ -40,6 +41,7 @@ class State:
         self.doors = random.randint(MIN_DOORS, MAX_DOORS)
         self.depth += 1
         self.sitting = False
+        self.color.become_random_color()
 
     def sit(self):
         self.sitting = True
@@ -62,7 +64,7 @@ class State:
             save_name += '.json'
         save_file = io.open('saves/' + save_name, 'wb')
         
-        save_dict = {'name': self.name, 'depth': self.depth, 'doors': self.doors, 'color': self.color, 'sitting': self.sitting, 'locale-name': self.locale.locale_name}
+        save_dict = {'name': self.name, 'depth': self.depth, 'doors': self.doors, 'color': self.color.get_rgb(), 'sitting': self.sitting, 'locale-name': self.locale.locale_name}
         try:
             json.dump(save_dict, save_file, separators=(',',':'))
             save_file.close()
@@ -92,7 +94,7 @@ class State:
             self.name = name
             self.depth = depth
             self.doors = doors
-            self.color = color
+            self.color.set_rgb(color)
             self.sitting = sitting
             self.locale.set_locale(locale_name)
             

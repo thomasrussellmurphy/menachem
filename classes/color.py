@@ -18,6 +18,7 @@ class Color:
         self.red = random.randint(RGB_MIN, RGB_MAX)
         self.green = random.randint(RGB_MIN, RGB_MAX)
         self.blue = random.randint(RGB_MIN, RGB_MAX)
+        return self # to make initialization with random color easier
 
     def set_rgb(self, rgb_triple): # No validation!
         self.red = rgb_triple[0]
@@ -27,9 +28,5 @@ class Color:
     def get_rgb(self):
         return (self.red, self.green, self.blue)
     
-    # TODO: SerDe for use in save/load of State. Or use Triple?
-    def ser(self):
-        return None # No serialization
-    
-    def de(self, ser):
-        return False # Did not deserialize
+    def get_name(self):
+        return '' # TODO: implement color name generator based on color space position
